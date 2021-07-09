@@ -32,9 +32,9 @@ function getBestMove(options, callback) {
     }
   };
 
-  // set the fen, then perform the search with the given time
+  // set the fen, then perform the search with the given movetime
   instance.postMessage('position fen ' + options.fen);
-  instance.postMessage('go movetime ' + options.time);
+  instance.postMessage('go movetime ' + options.movetime);
 }
 
 app.use(compression({
@@ -75,9 +75,9 @@ app.get('/moves', function (req, res) {
     return;
   }
 
-  var time = parseInt(req.query.time, 10);
+  var movetime = parseInt(req.query.movetime, 10);
 
-  getBestMove({ fen: fen, time: time }, function (moveResponse, err) {
+  getBestMove({ fen: fen, movetime: movetime }, function (moveResponse, err) {
     if (err) {
       console.error(err);
       res.status(500);
@@ -86,7 +86,7 @@ app.get('/moves', function (req, res) {
     }
 
     res.status(200);
-    res.send({ "bestmove": moveResponse[0], "score" : moveResponse[1], "time": time });
+    res.send({ "bestmove": moveResponse[0], "score" : moveResponse[1], "movetime": movetime });
   });
 });
 
