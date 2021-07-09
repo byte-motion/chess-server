@@ -1,6 +1,6 @@
 {
   "name": "chess-server",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A REST server that provides best move / score statistics API",
   "main": "chess-server.js",
   "scripts": {

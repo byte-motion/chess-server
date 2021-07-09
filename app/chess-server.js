@@ -61,7 +61,6 @@ console.log('registering /moves');
 app.get('/moves', function (req, res) {
   console.log('GET ' + req.originalUrl);
 
-
   res.set({
     'Content-Type': 'application/json'
   });
@@ -76,8 +75,7 @@ app.get('/moves', function (req, res) {
     return;
   }
 
-  var time = parseInt(req.query.time, 10) || 15;
-  time = Math.min(time, 20);
+  var time = parseInt(req.query.time, 10);
 
   getBestMove({ fen: fen, time: time }, function (moveResponse, err) {
     if (err) {
