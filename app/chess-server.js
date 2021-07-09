@@ -23,8 +23,8 @@ function getBestMove(options, callback) {
       var split = message.split(/ +/);
       var scoreStats = 0;
       for (var i = 0; i < split.length; i++) {
-        if(split[0] !== 'bestmove'){
-          scoreStats = split;
+        if(split[0] !=='bestmove' && split[i] == 'cp'){
+          scoreStats = split[i+1];
         }
       }
       if (split[0] == 'bestmove') {
