@@ -1,25 +1,25 @@
 {
   "name": "chess-server",
-  "version": "1.0.0",
-  "description": "A REST server that provides a best move API",
+  "version": "1.0.1",
+  "description": "A REST server that provides best move / score statistics API",
   "main": "chess-server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andrewmacheret/chess-server.git"
+    "url": "git+https://github.com/byte-motion/chess-server.git"
   },
-  "author": "Andrew Macheret",
+  "author": "Byte Motion",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/andrewmacheret/chess-server/issues"
+    "url": "https://github.com/byte-motion/chess-server"
   },
-  "homepage": "https://github.com/andrewmacheret/chess-server#readme",
+  "homepage": "https://github.com/byte-motion/chess-server#readme",
   "dependencies": {
-    "compression": "^1.6.2",
-    "express": "^4.13.4",
-    "stockfish": "^6.0.5",
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "stockfish": "^11.0.0",
     "urlencode": "^1.1.0"
   }
 }
