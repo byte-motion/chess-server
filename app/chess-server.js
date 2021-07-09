@@ -23,12 +23,12 @@ function getBestMove(options, callback) {
       var split = message.split(/ +/);
       var scoreStats = 0;
       for (var i = 0; i < split.length; i++) {
-        if(split[i]=="scorecp"){
-          scoreStats = split[i+1];
+        if(split[0] !== 'bestmove'){
+          scoreStats = split;
         }
       }
       if (split[0] == 'bestmove') {
-        callback(new Array(split[1], split, scoreStats));
+        callback(new Array(split[1], scoreStats));
       }
     }
   };
@@ -72,7 +72,7 @@ app.get('/moves', function (req, res) {
     res.status(500);
     res.send({
       "error": "Parameter 'fen' is required.",
-      "suggestion": '/moves?fen=' + urlencode('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1') + '&movetime=15'
+      "suggestion": '/moves?fen=' + urlencode('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1') + '&movetime=5'
     });
     return;
   }
@@ -89,7 +89,7 @@ app.get('/moves', function (req, res) {
     }
 
     res.status(200);
-    res.send({ "bestmove": moveResponse[0], "cjeli string" : moveResponse[1], "scoreCP" : moveResponse[2], "time": time });
+    res.send({ "bestmove": moveResponse[0], "score" : moveResponse[1], "time": time });
   });
 });
 
