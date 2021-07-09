@@ -8,6 +8,7 @@ var stockfish = require("stockfish");
 
 var fs = require('fs');
 var settings = JSON.parse(fs.readFileSync(path.resolve(__dirname, './settings.json'), 'utf8'));
+var scoreStats = 0;
 
 function getBestMove(options, callback) {
   var instance = stockfish();
@@ -19,9 +20,7 @@ function getBestMove(options, callback) {
     console.log(typeof event, event);
 
     if (typeof message === 'string') {
-      //'bestmove g1f3 ponder g8f6'
       var split = message.split(/ +/);
-      var scoreStats = 0;
       for (var i = 0; i < split.length; i++) {
         if(split[0] !=='bestmove' && split[i] == 'cp'){
           scoreStats = split[i+1];
