@@ -141,7 +141,7 @@ app.get('/evaluation', function (req, res) {
     return;
   }
 
-  getBoardEvaluation({ fen: fen, eval: eval }), function (moveResponse, err) {
+  getBoardEvaluation({ fen: fen, eval: eval }, function (moveResponse, err) {
     if (err) {
       console.error(err);
       res.status(500);
