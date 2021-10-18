@@ -1,5 +1,4 @@
-import process from 'process';
-
+var process = require('process');
 var express = require('express');
 var compression = require('compression');
 var app = express();
