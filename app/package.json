@@ -2,6 +2,7 @@
   "name": "chess-server",
   "version": "1.1.0",
   "description": "A REST server that provides best move / score statistics API",
+  "type": "module",
   "main": "chess-server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,7 +20,7 @@
   "dependencies": {
     "compression": "^1.7.4",
     "express": "^4.17.1",
-    "stockfish": "^11.0.0",
+    "stockfish": "^12.0.0",
     "urlencode": "^1.1.0"
   }
 }
