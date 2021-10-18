@@ -1,3 +1,5 @@
+import process from 'process';
+
 var express = require('express');
 var compression = require('compression');
 var app = express();
@@ -8,6 +10,10 @@ var stockfish = require("stockfish");
 
 var fs = require('fs');
 var settings = JSON.parse(fs.readFileSync(path.resolve(__dirname, './settings.json'), 'utf8'));
+
+process.on('uncaughtException', function (error) {
+  console.log(error.stack);
+});
 
 function getBestMove(options, callback) {
   var instance = stockfish();
